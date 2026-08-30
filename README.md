@@ -95,7 +95,7 @@ bash scripts/deploy.sh
 
 需要在仓库 Settings → Secrets 配置三个变量:`SERVER_HOST`、`SERVER_USER`、`SERVER_SSH_KEY`。
 
-## 面试可以讲的点
+## 可以讲的点
 
 - 用 `docker-compose` 编排多容器,`depends_on` + `healthcheck` 解决启动顺序
 - Nginx 反向代理、`proxy_set_header` 透传真实 IP
