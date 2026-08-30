@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  # 抓取 Node Exporter 暴露的服务器资源指标(CPU/内存/磁盘/网络)
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']

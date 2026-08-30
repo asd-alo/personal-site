@@ -50,8 +50,48 @@ services:
     networks:
       - site-net
 
+  # ---- 监控栈 ----
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: site-node-exporter
+    restart: unless-stopped
+    networks:
+      - site-net
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: site-prometheus
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - site-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: site-grafana
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - site-net
+
 volumes:
   db_data:
+  prometheus_data:
+  grafana_data:
 
 networks:
   site-net:
