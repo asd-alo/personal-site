@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}个人主页{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="{{ url_for('index') }}">🏠 我的网站</a>
+      <div class="links">
+        <a href="{{ url_for('index') }}">首页</a>
+        <a href="{{ url_for('guestbook') }}">留言板</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>Docker · Nginx · Flask · MySQL —— 从 0 部署上线的个人项目</p>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

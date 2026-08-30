@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}留言板 · 刘英杰{% endblock %}
+
+{% block content %}
+<section class="guestbook">
+  <h1>留言板</h1>
+
+  <form id="message-form" class="message-form">
+    <input type="text" id="nickname" maxlength="50" placeholder="你的昵称" required>
+    <textarea id="content" maxlength="1000" rows="4" placeholder="说点什么..." required></textarea>
+    <button type="submit">提交留言</button>
+  </form>
+
+  <div id="message-list" class="message-list"></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/guestbook.js') }}"></script>
+{% endblock %}

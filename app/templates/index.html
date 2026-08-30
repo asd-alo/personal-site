@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}刘英杰 · 个人主页{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>你好,我是刘英杰 👋</h1>
+  <p class="subtitle">运维工程师(求职中)· 独立完成从开发到部署上线的全流程</p>
+  <div class="tech-tags">
+    <span>Linux</span>
+    <span>Docker</span>
+    <span>Nginx</span>
+    <span>MySQL</span>
+    <span>Shell</span>
+    <span>HTTPS</span>
+    <span>CI/CD</span>
+    <span>监控</span>
+  </div>
+  <a class="btn" href="{{ url_for('guestbook') }}">给我留个言 →</a>
+</section>
+
+<section class="card">
+  <h2>关于我</h2>
+  <p>运维方向求职者,熟悉 Linux、Docker、Nginx、MySQL,能独立完成服务的容器化部署、反向代理配置、数据库备份与自动化运维。</p>
+  <p>本站就是我的实践作品:采用 <strong>Flask + MySQL</strong> 搭建,用 <strong>Docker Compose</strong> 编排三个容器(应用 / 数据库 / Nginx),配好了健康检查、备份脚本与 CI/CD 自动部署,完整走通了「代码 → 构建 → 部署 → 运维」的链路。</p>
+</section>
+
+<section class="card">
+  <h2>技能栈</h2>
+  <div class="skill-list">
+    <div class="skill-item">
+      <span class="skill-name">系统与网络</span>
+      <span class="skill-desc">Linux、SSH、systemd 服务管理、Nginx 反向代理、域名与 HTTPS</span>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">容器与部署</span>
+      <span class="skill-desc">Docker、Docker Compose 多容器编排、镜像构建</span>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">数据库</span>
+      <span class="skill-desc">MySQL 部署、SQL、备份与恢复</span>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">自动化</span>
+      <span class="skill-desc">Shell / Python 脚本、cron 定时任务、GitHub Actions CI/CD</span>
+    </div>
+    <div class="skill-item">
+      <span class="skill-name">监控</span>
+      <span class="skill-desc">健康检查与探活(监控面板持续学习中)</span>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>联系方式</h2>
+  <ul class="contact-list">
+    <li>📧 邮箱:your@email.com</li>
+    <li>📱 手机:138-0000-0000</li>
+    <li>💬 微信:your_wechat</li>
+    <li>🐙 GitHub:github.com/yourname</li>
+  </ul>
+  <a class="btn btn-download" href="{{ url_for('static', filename='resume.pdf') }}" download>📄 下载我的简历</a>
+</section>
+{% endblock %}
